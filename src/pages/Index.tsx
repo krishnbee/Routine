@@ -76,79 +76,76 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-bg">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
+    <div className="min-h-screen bg-gradient-bg pb-safe">
+      {/* iOS-style header with safe area */}
+      <div className="sticky top-0 z-10 bg-gradient-bg/95 backdrop-blur-md border-b border-border/10">
+        <div className="pt-safe px-4 pb-4">
+          <div className="flex items-center justify-between mb-2">
             <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">
+              <h1 className="text-2xl font-bold text-foreground">
                 Daily Habits
               </h1>
-              <p className="text-muted-foreground">{todayFormatted}</p>
+              <p className="text-sm text-muted-foreground">{todayFormatted}</p>
             </div>
-            <div className="flex gap-2">
-              <AddHabitDialog
-                categories={categories}
-                onAddHabit={handleAddHabit}
-                editingHabit={editingHabit}
-                onUpdateHabit={handleUpdateHabit}
-                onClose={() => setEditingHabit(undefined)}
-              />
-            </div>
+            <AddHabitDialog
+              categories={categories}
+              onAddHabit={handleAddHabit}
+              editingHabit={editingHabit}
+              onUpdateHabit={handleUpdateHabit}
+              onClose={() => setEditingHabit(undefined)}
+            />
           </div>
+        </div>
+      </div>
 
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <Card className="p-4 bg-gradient-card shadow-soft">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-primary/10">
+      <div className="px-4 py-6">
+        {/* iOS-style stats cards */}
+        <div className="mb-6">
+          <div className="grid grid-cols-3 gap-3">
+
+            <Card className="p-3 bg-gradient-card shadow-soft border-0 rounded-2xl">
+              <div className="text-center">
+                <div className="p-2 rounded-xl bg-primary/10 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
                   <Target className="w-5 h-5 text-primary" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Today's Habits</p>
-                  <p className="text-2xl font-bold">{todaysHabits.length}</p>
-                </div>
+                <p className="text-xs text-muted-foreground">Habits</p>
+                <p className="text-xl font-bold">{todaysHabits.length}</p>
               </div>
             </Card>
 
-            <Card className="p-4 bg-gradient-card shadow-soft">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-success/10">
+            <Card className="p-3 bg-gradient-card shadow-soft border-0 rounded-2xl">
+              <div className="text-center">
+                <div className="p-2 rounded-xl bg-success/10 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-success" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Completed</p>
-                  <p className="text-2xl font-bold">{completedToday}</p>
-                </div>
+                <p className="text-xs text-muted-foreground">Done</p>
+                <p className="text-xl font-bold">{completedToday}</p>
               </div>
             </Card>
 
-            <Card className="p-4 bg-gradient-card shadow-soft">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-accent/10">
+            <Card className="p-3 bg-gradient-card shadow-soft border-0 rounded-2xl">
+              <div className="text-center">
+                <div className="p-2 rounded-xl bg-accent/10 w-10 h-10 mx-auto mb-2 flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-accent" />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Completion Rate</p>
-                  <p className="text-2xl font-bold">{completionRate}%</p>
-                </div>
+                <p className="text-xs text-muted-foreground">Rate</p>
+                <p className="text-xl font-bold">{completionRate}%</p>
               </div>
             </Card>
           </div>
         </div>
 
-        {/* Habits List */}
-        <div className="space-y-4">
+        {/* iOS-style Habits List */}
+        <div className="space-y-3">
           {todaysHabits.length === 0 ? (
-            <Card className="p-8 text-center bg-gradient-card shadow-soft">
-              <div className="max-w-md mx-auto">
+            <Card className="p-8 text-center bg-gradient-card shadow-soft border-0 rounded-2xl">
+              <div className="max-w-sm mx-auto">
                 <div className="p-4 rounded-full bg-primary/10 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Target className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-medium mb-2">No habits for today</h3>
-                <p className="text-muted-foreground mb-4">
-                  Start building better habits by adding your first one!
+                <h3 className="text-lg font-semibold mb-2">No habits today</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Ready to start your habit journey?
                 </p>
                 <AddHabitDialog
                   categories={categories}
@@ -179,14 +176,14 @@ const Index = () => {
           )}
         </div>
 
-        {/* Motivational Footer */}
+        {/* iOS-style Motivational Footer */}
         {todaysHabits.length > 0 && completionRate === 100 && (
-          <Card className="mt-8 p-6 text-center bg-gradient-success shadow-success">
+          <Card className="mt-6 p-6 text-center bg-gradient-success shadow-success border-0 rounded-2xl">
             <h3 className="text-lg font-bold text-success-foreground mb-2">
               🎉 Perfect Day!
             </h3>
-            <p className="text-success-foreground/90">
-              You've completed all your habits for today. Keep up the great work!
+            <p className="text-success-foreground/90 text-sm">
+              All habits completed! You're building amazing momentum.
             </p>
           </Card>
         )}

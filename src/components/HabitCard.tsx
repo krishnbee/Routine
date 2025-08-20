@@ -32,28 +32,28 @@ export function HabitCard({
   return (
     <Card 
       className={cn(
-        "p-4 transition-all duration-300 cursor-pointer bg-gradient-card border-0 shadow-soft hover:shadow-hover",
+        "p-4 transition-all duration-300 cursor-pointer bg-gradient-card border-0 shadow-soft hover:shadow-hover rounded-2xl touch-feedback",
         isCompleted && "bg-gradient-success border border-success/20"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleToggleCompletion}
     >
-      <div className="flex items-center gap-3">
-        <div className="flex-shrink-0">
+      <div className="flex items-center gap-4">
+        <div className="flex-shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center">
           {isCompleted ? (
             <CheckCircle2 
-              className="w-6 h-6 text-success-foreground animate-bounce-in" 
+              className="w-7 h-7 text-success-foreground animate-bounce-in" 
             />
           ) : (
-            <Circle className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors" />
+            <Circle className="w-7 h-7 text-muted-foreground hover:text-primary transition-colors" />
           )}
         </div>
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <h3 className={cn(
-              "font-medium transition-all duration-300",
+              "font-semibold text-base transition-all duration-300",
               isCompleted ? "text-success-foreground line-through" : "text-foreground"
             )}>
               {habit.title}
@@ -66,14 +66,14 @@ export function HabitCard({
           
           {habit.description && (
             <p className={cn(
-              "text-sm transition-all duration-300",
+              "text-sm transition-all duration-300 mb-2",
               isCompleted ? "text-success-foreground/70" : "text-muted-foreground"
             )}>
               {habit.description}
             </p>
           )}
 
-          <div className="flex items-center gap-2 mt-2">
+          <div className="flex items-center gap-2">
             <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
               {habit.frequency}
             </span>
@@ -92,7 +92,7 @@ export function HabitCard({
                 e.stopPropagation();
                 onEdit(habit);
               }}
-              className="h-8 w-8 p-0 hover:bg-primary/10"
+              className="h-10 w-10 p-0 hover:bg-primary/10 rounded-xl touch-feedback"
             >
               <Edit3 className="w-4 h-4" />
             </Button>
@@ -103,7 +103,7 @@ export function HabitCard({
                 e.stopPropagation();
                 onDelete(habit.id);
               }}
-              className="h-8 w-8 p-0 hover:bg-destructive/10 hover:text-destructive"
+              className="h-10 w-10 p-0 hover:bg-destructive/10 hover:text-destructive rounded-xl touch-feedback"
             >
               <Trash2 className="w-4 h-4" />
             </Button>
