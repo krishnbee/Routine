@@ -2,66 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Habit Tracker Design System - Calming and Motivating */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
-    /* Main backgrounds with calming gradients */
-    --background: 220 20% 97%;
-    --foreground: 215 25% 15%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    /* Card system with subtle elevation */
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    /* Primary: Calming blue-green */
-    --primary: 195 85% 45%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 195 85% 60%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Secondary: Soft blue */
-    --secondary: 210 15% 95%;
-    --secondary-foreground: 215 25% 25%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    /* Success: Encouraging green */
-    --success: 142 70% 50%;
-    --success-foreground: 0 0% 100%;
-    --success-glow: 142 70% 65%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Muted tones */
-    --muted: 210 15% 93%;
-    --muted-foreground: 215 15% 50%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    /* Accent: Warm encouragement */
-    --accent: 45 85% 60%;
-    --accent-foreground: 215 25% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --destructive: 0 75% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 195 85% 45%;
-
-    /* Beautiful gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(195 85% 45%), hsl(195 85% 60%));
-    --gradient-success: linear-gradient(135deg, hsl(142 70% 50%), hsl(142 70% 65%));
-    --gradient-bg: linear-gradient(135deg, hsl(220 25% 98%), hsl(210 30% 95%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 20% 98%));
-
-    /* Elegant shadows */
-    --shadow-soft: 0 2px 20px -5px hsl(215 25% 15% / 0.1);
-    --shadow-hover: 0 8px 30px -8px hsl(195 85% 45% / 0.25);
-    --shadow-success: 0 8px 30px -8px hsl(142 70% 50% / 0.3);
-
-    /* Smooth transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
